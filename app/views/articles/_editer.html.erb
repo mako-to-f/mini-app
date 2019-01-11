@@ -2,7 +2,7 @@
   <%= form_for @article, html: {class: "col s8 offset-s2"} do |f| %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.text_area :content, id: "textarea1", class: "materialize-textarea" %>
+        <%= f.text_area :content, id: "textarea1", class: "materialize-textarea", autofocus: true %>
         <%= f.label :content, "本文", for: "textarea1" %>
         <%= f.submit "送信", class: "waves-effect waves-light btn"%>
       </div>
