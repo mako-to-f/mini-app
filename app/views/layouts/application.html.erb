@@ -20,30 +20,8 @@
 
   <body>
 
-    <div class="navbar-fixed">
-      <nav class="grey darken-4">
-        <div class="nav-wrapper">
-          <%= link_to "BLOG", root_path, class:"center brand-logo" %>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <% if user_signed_in? %>
-            <li><%= link_to "投稿する", new_article_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <% flash.each do |type, msg| %>
-      <% type = 'info' if type == 'notice' %>
-      <% type = 'error' if type == 'alert' %>
-      <script>
-        toastr['<%= type %>']('<%= msg %>');
-      </script>
-    <% end %>
+    <%= render 'share/navbar' %>
+    <%= render 'share/flash' %>
 
     <%= yield %>
 
