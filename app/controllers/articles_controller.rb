@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.order("created_at DESC")
+    @articles = Article.includes(:user).order("created_at DESC")
   end
 
   def new
