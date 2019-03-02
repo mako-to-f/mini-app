@@ -2,10 +2,13 @@
   <div class="col s8 offset-s2">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
+        <%= link_to user_path(article.user.id) do %>
+          <p class="white-text"><%= article.user.user_name %></p>
+        <% end %>
         <p><%= simple_format(article.content) %></p>
       </div>
       <div class="card-action">
-        <% unless controller.action_name == "show" %>
+        <% unless controller.controller_name == "articles" && controller.action_name == "show" %>
         <%= link_to "詳 細", article_path(article), class: "waves-effect waves-light btn" %>
         <% end %>
         <% if user_signed_in? && article.user_id == current_user.id %>
