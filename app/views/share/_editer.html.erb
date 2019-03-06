@@ -1,11 +1,9 @@
-<div class="row">
-  <%= form_for article, html: {class: "col s8 offset-s2"} do |f| %>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.text_area :content, id: "textarea1", class: "materialize-textarea", autofocus: true %>
-        <%= f.label :content, "本文", for: "textarea1" %>
-        <%= f.submit "送信", class: "waves-effect waves-light btn"%>
-      </div>
+<div class="container col-sm-6 mt-3">
+  <%= form_for article do |f| %>
+    <div class="form-group">
+      <%= f.label :content, "本文", for: "textarea1" %>
+      <%= f.text_area :content, id: "textarea1", class: "form-control", rows: "5", autofocus: true %>
+      <%= f.submit "送信", class: "btn btn-primary float-right mt-2"%>
     </div>
   <% end %>
 </div>
