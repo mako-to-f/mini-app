@@ -1,17 +1,32 @@
-<div class="navbar">
-  <nav class="grey darken-4">
-    <div class="nav-wrapper">
-      <%= link_to "makoto's Labo", root_path, class:"brand-logo" %>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-        <li><%= link_to "投稿する", new_article_path %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
+<header class="sticky-top bg-dark">
+  <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <%= link_to "makoto's Labo", root_path, class:"navbar-brand text-white" %>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-muted" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "投稿する", new_article_path, class: "nav-link text-muted" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-muted" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-muted" %>
+            </li class="nav-item">
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-link text-muted" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

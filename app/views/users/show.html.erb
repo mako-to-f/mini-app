@@ -1,6 +1,6 @@
-<% if @user.id == current_user.id %>
-  <h5 class="center">マイページ</h5>
+<% if user_signed_in? && @user.id == current_user.id %>
+  <h5 class="text-center border">マイページ</h5>
 <% else %>
-  <h5 class="center"><%= @user.user_name %>さんの投稿一覧</h5>
+  <h5 class="text-center border"><%= @user.user_name %>さんの投稿一覧</h5>
 <% end %>
 <%= render @articles %>
