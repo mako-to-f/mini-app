@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   before_action :redirect_to_index, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -44,6 +43,7 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:content).merge(user_id: current_user.id)
   end
