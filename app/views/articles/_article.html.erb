@@ -3,7 +3,7 @@
     <%= link_to user_path(article.user.id) do %>
       <div class="text-body font-weight-bold"><%= article.user.user_name %></div>
     <% end %>
-    <small class="text-body text-muted ml-3"><%= article.created_at %></small>
+    <small class="text-body text-muted ml-3"><%= article.created_at.in_time_zone('Tokyo') %></small>
   </div>
   <div class="dropdown float-right">
     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
