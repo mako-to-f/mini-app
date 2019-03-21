@@ -1,4 +1,4 @@
-Factory.define do
+FactoryBot.define do
   factory :article do
     content { 'テスト' }
     user
