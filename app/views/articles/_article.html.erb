@@ -21,5 +21,10 @@
   </div>
   <div class="clearfix"></div>
   <p><%= simple_format(article.content) %></p>
+  <% if article.images %>
+    <% article.images.count.times do |i| %>
+      <%= image_tag(article.images[i]) %>
+    <% end %>
+  <% end %>
 </div>
 
